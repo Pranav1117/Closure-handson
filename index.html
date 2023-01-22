@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Closure Handson JS</title>
+  </head>
+  <body>
+    <h1>JS Handson 3</h1>
+<hr size="5px" color="brown">
+
+      <ol>
+        <li><h2>function counter(){
+    var counter = 0;
+
+    function IncreaseCounter() {
+        return counter += 1;
+    };
+
+    return IncreaseCounter;
+}
+
+var counter = Counter();
+console.log(counter());
+console.log(counter());
+console.log(counter());
+console.log(counter());
+ 
+</li></h2>
+        <h4>Answer:</h4>
+        <pre>
+         var counter = Counter(); 
+         console.log(counter());  Output =1
+         console.log(counter());  Output =2
+         console.log(counter());  Output =3
+         console.log(counter());  Output =4
+</pre>
+   <hr />  
+   
+
+
+   <li><h2>
+  let count = 0;
+    (function () {
+      if (count === 0) {
+        let count = 1;
+        console.log(count); // What is logged?
+      }
+      console.log(count); // What is logged?
+    })();
+
+</li></h2>
+        <h4>Answer:</h4>
+        <pre>
+         undefined
+          Because IIFE provides data security
+</pre>
+   <hr /> 
+
+
+
+   <li><h2>for (var i = 0; i &lt; 3; i++) {
+    setTimeout(function log() {
+      console.log(i); // What is logged?
+    }, 1000);
+  }
+  </li></h2>
+        <h4>Answer:</h4>
+        <pre>
+         console.log(i); 
+         Output:- 3 3 3 (after 1 sec it will execute at once )
+         Because of "for" loop settimeout will run 3 times & updated value will be 3 so it will print 3 3 times
+</pre>
+   <hr /> 
+
+
+
+   <li><h2>Print Output
+
+    var a = 12;
+    (function () {
+      alert(a);
+    })();
+     
+    
+</li></h2>
+        <h4>Answer:</h4>
+        <pre>
+         Output:-12
+
+
+</pre>
+   <hr /> 
+
+
+
+   <li><h2>var a = 10;
+    var x = (function () {
+      var a = 12;
+      return function () {
+        alert(a);
+      };
+    })();
+    x();
+    
+</li></h2>
+        <h4>Answer:</h4>
+        <pre>
+          Output:-12
+</pre>
+   <hr />  
+
+
+
+   <li><h2>var globalVar = "xyz";
+
+    (function outerFunc(outerArg) {
+        var outerVar = 'a';
+        
+        (function innerFunc(innerArg) {
+        var innerVar = 'b';
+        
+        console.log(
+            "outerArg = " + outerArg + "\n" +
+            "innerArg = " + innerArg + "\n" +
+            "outerVar = " + outerVar + "\n" +
+            "innerVar = " + innerVar + "\n" +
+            "globalVar = " + globalVar);
+        
+        })(456);
+    })(123);
+     
+    
+</li></h2>
+        <h4>Answer:</h4>
+        <pre>
+Output:-
+          outerArg = 123
+          innerArg = 456
+          outerVar = a
+          innerVar = b
+          globalVar = xyz
+</pre>
+   <hr />  
+
+   
+      </ol>
+    
+    
+  </body>
+</html>
